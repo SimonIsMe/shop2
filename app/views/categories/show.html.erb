@@ -1,0 +1,15 @@
+<h1><%= @category.name %></h1>
+
+<p>
+  Lista dostępnych produktów:
+<ul>
+  <% @products.each do |product| %>
+      <li>
+        <%= product.name %>
+        <%= link_to "Zobacz", product %>
+      </li>
+  <% end %>
+</ul>
+</p>
+<%= link_to "Stona główna", :root %>
+

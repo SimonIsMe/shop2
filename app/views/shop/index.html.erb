@@ -1,0 +1,26 @@
+<h1>Witaj w moim sklepie</h1>
+
+<p>
+  Kategorie:
+  <ul>
+    <% @categories.each do |category| %>
+        <li>
+          <%= category.name %>
+          <%= link_to "Zobacz", category %>
+        </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  Lista dostępnych produktów:
+  <ul>
+    <% @products.each do |product| %>
+        <li>
+          <%= product.name %>
+          <%= link_to "Zobacz", product %>
+        </li>
+    <% end %>
+  </ul>
+</p>
+
