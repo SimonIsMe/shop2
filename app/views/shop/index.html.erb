@@ -1,26 +1,29 @@
-<h1>Witaj w moim sklepie</h1>
-
-<p>
-  Kategorie:
-  <ul>
-    <% @categories.each do |category| %>
-        <li>
-          <%= category.name %>
-          <%= link_to "Zobacz", category %>
-        </li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
-  Lista dostępnych produktów:
-  <ul>
-    <% @products.each do |product| %>
-        <li>
-          <%= product.name %>
-          <%= link_to "Zobacz", product %>
-        </li>
-    <% end %>
-  </ul>
-</p>
-
+<div class="row">
+    <div class="span3">
+        <h5>Kategorie</h5>
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active">
+                <%= link_to 'Strona główna', :root %>
+            </li>
+            <% @categories.each do |category| %>
+                <li>
+                  <%= link_to category.name, category %>
+                </li>
+            <% end %>
+    </div>
+    <div class="span_8">
+        <h1>Witaj w sklepie!</h1>
+        <h5>Co chcesz dzisiaj kupić?</h5>
+            <table class="table">
+                <tbody>
+                    <% @products.each do |product| %>
+                        <tr>
+                            <td><%= product.name %></td>
+                            <td><%= product.price / 100 %>zł</td>
+                            <td><%= link_to "Zobacz", product %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+    </div>
+</div>

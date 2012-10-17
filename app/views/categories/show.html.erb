@@ -1,15 +1,31 @@
-<h1><%= @category.name %></h1>
 
-<p>
-  Lista dostępnych produktów:
-<ul>
-  <% @products.each do |product| %>
+<div class="row">
+  <div class="span3">
+    <h5>Kategorie</h5>
+    <ul class="nav nav-pills nav-stacked">
       <li>
-        <%= product.name %>
-        <%= link_to "Zobacz", product %>
+        <%= link_to 'Strona główna', :root %>
       </li>
-  <% end %>
-</ul>
-</p>
-<%= link_to "Stona główna", :root %>
+      <% @categories.each do |category| %>
+          <li <%= (category.id == @category.id) ? 'class=active' : '' %>>
+            <%= link_to category.name, category %>
+          </li>
+      <% end %>
+  </div>
+  <div class="span 6">
+    <h1><%= @category.name %></h1>
+
+    <table class="table">
+      <tbody>
+      <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.price / 100 %>zł</td>
+            <td><%= link_to "Zobacz", product %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
