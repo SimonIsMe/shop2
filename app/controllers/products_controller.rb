@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
 
-  def show
+    def show
+        @product = Product.find(params[:id])
 
-    @product = Product.find(params[:id])
+        chceckBuyerSession
 
-    #render :text => params[:id]
-  end
+        render :text => params
+    end
 
 end

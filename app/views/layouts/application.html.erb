@@ -21,8 +21,14 @@
 
 
 
-    <div class="container" style="width:800px; margin-top:40px;">
-        <%= yield %>
+    <div class="container" style="margin-top:40px;">
+
+        <div class="row">
+            <%= yield %>
+            <div class="span2">
+                <%= render 'orders/template' %>
+            </div>
+        </div>
     </div>
 
 </body>

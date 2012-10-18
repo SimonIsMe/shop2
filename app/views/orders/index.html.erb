@@ -1,0 +1,31 @@
+<h1>Lista rzeczy w Twoim koszyku:</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nazwa</td>
+            <td>Cena za szt.</td>
+            <td>Ilość</td>
+            <td>Cena</td>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+           if @orderItems == nil
+               %>
+                    <tr>
+                        <td style="text-align:center" colspan="4">Koszyk jest pusty</td>
+                    </tr>
+               <%
+           else
+               <% @orderItems.each do |item| %>
+                    <tr>
+                        <td><%= item.product.name %></td>
+                        <td><%= item.product.price / 100 %>zł</td>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.product.price * item.quantity / 100 %>zł</td>
+                    </tr>
+               <% end %>
+           end
+        %>
+    </tbody>
+</table>

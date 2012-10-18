@@ -1,0 +1,30 @@
+<h1>Utwórz nowy produkt</h1>
+
+<form method="post" action="/admin/products/">
+
+    <label>
+        Nazwa:
+        <input type="text" name="name" />
+    </label>
+
+    <label>
+        Cena:
+        <input type="text" name="price" />
+    </label>
+
+    <label>
+        Kategoria
+        <select name="category_id">
+            <%
+                @categories.each do |category|
+                %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <%
+                end
+            %>
+        </select>
+    </label>
+
+    <input type="submit" value="Utwórz" />
+
+</form>

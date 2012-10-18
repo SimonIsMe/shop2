@@ -1,0 +1,15 @@
+<h1>Edycja produktu</h1>
+
+<form method="post" action="/admin/categories/">
+
+    <label>
+        Nazwa:
+        <input type="text" name="name" value="<%= @category.name %>" />
+    </label>
+
+
+  <input type="text" name="id" value="<%= @category.id %>" />
+
+    <input type="submit" value="Zapisz zmiany" />
+
+</form>

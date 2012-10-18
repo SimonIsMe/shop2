@@ -1,0 +1,27 @@
+<h1>Lista produktów</h1>
+
+<a href="/admin/products/new" class="btn btn-primary">Utwórz nowy</a>
+
+<table class="table">
+  <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Kategoria</th>
+            <th>Cena</th>
+            <th>Czynności</th>
+        </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.price / 100 %>zł</td>
+        <td>
+            <a href="/admin/products/<%= product.id %>/edit">Edycja</a>
+            <a href="/admin/products/<%= product.id %>/remove">Usuń</a>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

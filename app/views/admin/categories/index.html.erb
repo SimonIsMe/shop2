@@ -1,0 +1,23 @@
+<h1>Lista kategorii</h1>
+
+<a href="/admin/categories/new" class="btn btn-primary">Utwórz nową</a>
+
+<table class="table">
+  <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Czynności</th>
+        </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+      <tr>
+            <td><%= category.name %></td>
+            <td>
+                <a href="/admin/categories/<%= category.id %>/edit">Edycja</a>
+                <a href="/admin/categories/<%= category.id %>/remove">Usuń</a>
+            </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

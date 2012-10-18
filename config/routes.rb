@@ -4,6 +4,17 @@ Shop::Application.routes.draw do
 
   resources :categories
   resources :products
+  resources :orders
+
+  namespace 'admin' do
+      resources :categories
+      resources :products
+  end
+
+  match "/admin/products/:id/remove" => "admin/products#remove"
+  match "/admin/categories/:id/remove" => "admin/categories#remove"
+
+  #match 'orders/add' => 'orders#add'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

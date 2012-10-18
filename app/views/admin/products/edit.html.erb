@@ -1,0 +1,32 @@
+<h1>Edycja produktu</h1>
+
+<form method="post" action="/admin/products/">
+
+    <label>
+        Nazwa:
+        <input type="text" name="name" value="<%= @product.name %>" />
+    </label>
+
+    <label>
+        Cena:
+        <input type="text" name="price" value="<%= @product.price/100 %>" />
+    </label>
+
+  <input type="text" name="id" value="<%= @product.id %>" />
+
+    <label>
+        Kategoria
+        <select name="category_id">
+            <%
+                @categories.each do |category|
+                %>
+                    <option <%= (category.id == @product.category.id) ? 'selected="selected"' : '' %> value="<%= category.id %>"><%= category.name %></option>
+                <%
+                end
+            %>
+        </select>
+    </label>
+
+    <input type="submit" value="Zapisz zmiany" />
+
+</form>

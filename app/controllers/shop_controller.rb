@@ -1,10 +1,10 @@
 class ShopController < ApplicationController
-  def index
+    def index
 
-    @products = Product.all
-    @categories = Category.all
+        @products = Product.all
+        @categories = Category.all
 
-    #render :text => params[:id]
-  end
+        chceckBuyerSession
+    end
 
 end
