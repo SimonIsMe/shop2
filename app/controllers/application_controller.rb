@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
 
     def chceckBuyerSession
+        #render :text => session
+
         if session[:buyer_id] == nil
-            @buyer = Buyer.new;
+            @buyer = Buyer.new
             @buyer.save
             @buyer.orders.create
             session[:buyer_id] = @buyer.id

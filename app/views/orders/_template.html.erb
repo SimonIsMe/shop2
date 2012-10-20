@@ -1,2 +1,24 @@
 <h5>Twój koszyk:</h5>
-...jest pusty
+<%
+   if @buyer.orders[0].getOrderItems.size == 0
+        %>
+            ...jest pusty<br />
+        <%
+   else
+        %>
+            <ul>
+                <%
+                    @buyer.orders[0].getOrderItems.each do |orderItem|
+                        %>
+                            <li>
+                                <%= orderItem.product.name %>
+                            </li>
+                        <%
+                    end
+                %>
+            </ul>
+        <%
+   end
+%>
+
+<a href="/orders/">Pokaż szczegóły</a>

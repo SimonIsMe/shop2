@@ -1,6 +1,10 @@
 Shop::Application.routes.draw do
 
+  #devise_for :users
+
   root :to => "shop#index"
+
+  match "/orders/accept" => "orders#accept"
 
   resources :categories
   resources :products
@@ -9,7 +13,10 @@ Shop::Application.routes.draw do
   namespace 'admin' do
       resources :categories
       resources :products
+      resources :orders
   end
+
+  match "/orders/:id/remove" => "orders#remove"
 
   match "/admin/products/:id/remove" => "admin/products#remove"
   match "/admin/categories/:id/remove" => "admin/categories#remove"

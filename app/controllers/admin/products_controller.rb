@@ -16,7 +16,6 @@ class Admin::ProductsController < ApplicationController
     end
 
     def create
-
        # render :text => params
 
         if params['id'] == nil

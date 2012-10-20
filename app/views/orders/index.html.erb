@@ -6,26 +6,29 @@
             <td>Cena za szt.</td>
             <td>Ilość</td>
             <td>Cena</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
         <%
-           if @orderItems == nil
+           if @order.getOrderItems == nil
                %>
                     <tr>
                         <td style="text-align:center" colspan="4">Koszyk jest pusty</td>
                     </tr>
                <%
            else
-               <% @orderItems.each do |item| %>
+                @order.getOrderItems.each do |item| %>
                     <tr>
                         <td><%= item.product.name %></td>
                         <td><%= item.product.price / 100 %>zł</td>
                         <td><%= item.quantity %></td>
                         <td><%= item.product.price * item.quantity / 100 %>zł</td>
+                        <td><a href="/orders/<%= item.id %>/remove/">Usuń</a></td>
                     </tr>
-               <% end %>
+               <% end
            end
         %>
     </tbody>
 </table>
+<a href="/orders/accept/" class="btn btn-primary">Zatwierdź</a>

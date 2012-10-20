@@ -1,0 +1,43 @@
+<h1>Zamówienia</h1>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="/admin/orders/">Zamówienia</a>
+    </li>
+    <li><a href="/admin/products/">Produkty</a></li>
+    <li><a href="/admin/categories/">Kategorie</a></li>
+</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id zamówienia</td>
+            <td>Szczegóły zamówienia</td>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+            @orders.each do |order|
+                if order.confirmed == true && order.getOrderItems.size > 0
+                    %>
+                        <tr>
+                            <td><%= order.id %></td>
+                            <td>
+                                <ol>
+                                    <% order.getOrderItems.each do |orderItem|
+                                            %>
+                                                <li>
+                                                    <%= orderItem.product.name %> -
+                                                    <%= orderItem.quantity %> szt. w sumie za
+                                                    <b><%= orderItem.quantity * orderItem.price / 100 %>zł</b>
+                                                </li>
+                                            <%
+                                        end
+                                    %>
+                                </ol>
+                            </td>
+                        </tr>
+                    <%
+                end
+            end
+        %>
+    </tbody>
+</table>

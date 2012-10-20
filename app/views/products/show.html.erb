@@ -4,6 +4,7 @@
 <form action="/orders/" method="post">
     <input type="text" name="buyer_id" value="<%= @buyer.id %>" />
     <input type="hidden" name="product_id" value="<%= @product.id %>" />
+    <input type="hidden" name="price" value="<%= @product.price %>" />
     <select name="quantity">
         <%
             (1..10).each do |i|
@@ -17,3 +18,7 @@
 
 </form>
 <a href="/order/add/<%= @product.id %>">Dodaj do koszyka</a>
+
+<div class="span2">
+  <%= render 'orders/template' %>
+</div>
