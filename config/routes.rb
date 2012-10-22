@@ -11,6 +11,7 @@ Shop::Application.routes.draw do
   resources :orders
 
   namespace 'admin' do
+      root :to => 'orders#index'
       resources :categories
       resources :products
       resources :orders

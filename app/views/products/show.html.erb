@@ -2,7 +2,7 @@
 <%= @product.price / 100 %> PLN
 <%= link_to 'Strong główna', :root %>
 <form action="/orders/" method="post">
-    <input type="text" name="buyer_id" value="<%= @buyer.id %>" />
+    <input type="hidden" name="buyer_id" value="<%= @buyer.id %>" />
     <input type="hidden" name="product_id" value="<%= @product.id %>" />
     <input type="hidden" name="price" value="<%= @product.price %>" />
     <select name="quantity">

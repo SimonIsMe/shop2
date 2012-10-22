@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         orderItem.price = params['price']
         orderItem.save
 
-        render :text => params
+        redirect_to '/orders/'
     end
 
     # usuwanie z koszyka
