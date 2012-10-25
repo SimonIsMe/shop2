@@ -1,0 +1,33 @@
+<h1>
+    Wyszukiwarka
+</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produkt</th>
+            <th>Kategoria</th>
+            <th>Cena</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+           if @products.size == 0
+               %>
+                    <tr>
+                        <td colspan="4" style="text-align:center">Nie znaleziono produktów</td>
+                    </tr>
+               <%
+           end
+        %>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= link_to(product.category.name, product.category) %></td>
+                <td><%= product.price / 100 %>zł</td>
+                <td><%= link_to "Zobacz", product %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

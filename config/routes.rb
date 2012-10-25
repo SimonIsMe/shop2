@@ -17,6 +17,8 @@ Shop::Application.routes.draw do
       resources :orders
   end
 
+  match "/search" => "search#index"
+
   match "/orders/:id/remove" => "orders#remove"
 
   match "/admin/products/:id/remove" => "admin/products#remove"
