@@ -1,5 +1,4 @@
 Shop::Application.routes.draw do
-
   #devise_for :users
 
   root :to => "shop#index"
@@ -11,6 +10,7 @@ Shop::Application.routes.draw do
   resources :orders
 
   namespace 'admin' do
+      devise_for :admin_users
       root :to => 'orders#index'
       resources :categories
       resources :products

@@ -12,16 +12,12 @@
         </tr>
     </thead>
     <tbody>
-        <%
-           if @products.size == 0
-               %>
-                    <tr>
-                        <td colspan="4" style="text-align:center">Nie znaleziono produktów</td>
-                    </tr>
-               <%
-           end
-        %>
-        <% @products.each do |product| %>
+        <% if @products.size == 0 %>
+            <tr>
+                <td colspan="4" style="text-align:center">Nie znaleziono produktów</td>
+            </tr>
+        <% end
+        @products.each do |product| %>
             <tr>
                 <td><%= product.name %></td>
                 <td><%= link_to(product.category.name, product.category) %></td>

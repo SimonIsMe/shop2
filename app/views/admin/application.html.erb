@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link rel="Stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container" style="width:900px;">
+                <a href="/" class="brand">
+                    Sklep z oprogramowaniem
+                </a>
+                <form method="get" action="/search" style="float:right; margin:0px;">
+                    <input type="text" name="search" placeholder="Wpisz frazę do wyszukania..." style="margin:3px;" />
+                    <input type="submit" value="Szukaj" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container" style="margin-top:40px;">
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <div class="row">
+            <%= yield %>
+        </div>
+    </div>
+
+</body>
+</html>
