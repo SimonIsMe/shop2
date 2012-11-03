@@ -8,4 +8,8 @@ class CategoriesController < ApplicationController
         chceckBuyerSession
     end
 
+    def names
+        @categories = Category.all
+    end
+
 end

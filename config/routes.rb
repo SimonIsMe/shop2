@@ -6,6 +6,8 @@ Shop::Application.routes.draw do
   match "/orders/accept" => "orders#accept"
   match "/prompt" => "shop#prompt"
 
+  match "/categories/names" => "categories#names"
+
   resources :categories
   resources :products
   resources :orders
@@ -19,6 +21,8 @@ Shop::Application.routes.draw do
   end
 
   match "/search" => "search#index"
+
+  match "/spa" => "shop#spa"
 
   match "/orders/:id/remove" => "orders#remove"
 

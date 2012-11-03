@@ -11,4 +11,8 @@ class ShopController < ApplicationController
         render :layout => false
     end
 
+    def spa
+        render :layout => false
+    end
+
 end

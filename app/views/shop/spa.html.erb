@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/css/bootstrap.css" />
+        <script type="text/javascript" src="/javascript/jquery.js"></script>
+        <script type="text/javascript" src="/javascript/hadlebars.js"></script>
+        <script type="text/javascript" src="/javascript/hadlebars-helpers.js"></script>
+        <script type="text/javascript" src="/javascript/sammy.js"></script>
+        <script type="text/javascript" src="/javascript/spa.js"></script>
+
+        <script id="categories-tpl" type="text/x-handlebars-template">
+            <div class="span3">
+                <h5>Kategorie</h5>
+                <ul id="categories" class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="#/">
+                            Strona główna
+                        </a>
+                    </li>
+                    {{#list categories}} {{id}} {{name}} {{/list}}
+                </ul>
+          </div>
+        </script>
+
+        <script id="products-table-tpl" type="text/x-handlebars-template">
+            <tbody>
+                {{#products-list products}} {{id}} {{name}} {{price}} {{/products-list}}
+            </tbody>
+        </script>
+
+        <script id="product-tpl" type="text/x-handlebars-template">
+            <div id="main" class="span6">
+                <h1>{{name}}</h1>
+                {{price}}zł
+
+                <form action="#/orders/create" method="post">
+                    <input type="hidden" name="buyer_id" value="{{buyer_id}}" />
+                    <input type="hidden" name="product_id" value="{{id}}" />
+                    <input type="hidden" name="price" value="{{price_100}}" />
+                    <select name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <input type="submit" value="Dodaj do koszyka">
+                </form>
+            </div>
+            <div id="right" class="span2"></div>
+        </script>
+
+        <script id="category-tpl" type="text/x-handlebars-template">
+            <div id="categories-list"></div>
+            <div id="main" class="span6">
+                <h1>{{name}}</h1>
+                <table class="table"></table>
+            </div>
+            <div id="right" class="span2"></div>
+        </script>
+
+        <script id="home-page-tpl" type="text/x-handlebars-template">
+            <div id="categories-list"></div>
+            <div id="main" class="span6">
+                <h1>Witaj w sklepie!</h1>
+                <h5>Co chcesz dzisiaj kupić?</h5>
+            </div>
+            <div id="right" class="span2"></div>
+        </script>
+
+        <script id="orders-tpl" type="text/x-handlebars-template">
+            <div id="main">
+                <h1>Lista rzeczy w Twoim koszyku:</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Nazwa</td>
+                            <td>Cena za szt.</td>
+                            <td>Ilość</td>
+                            <td>Cena</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#orders-list orders}} {{id}} {{name}} {{price}} {{price_q}} {{quantity}} {{/orders-list}}
+                    </tbody>
+                </table>
+            </div>
+        </script>
+
+        <script id="orders-right-tpl" type="text/x-handlebars-template">
+            <h5>Twój koszyk:</h5>
+                {{#if orders}}
+                    ...jest pusty
+                {{/if}}
+                <ul>
+                    {{#simple-list orders}} {{name}} {{/simple-list}}
+                </ul>
+
+                <a href="#/orders">Pokaż szczegóły</a>
+            </div>
+        </script>
+
+    </head>
+    <body id="body">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container" style="width:900px;">
+                    <a href="#/" class="brand">
+                        Sklep z oprogramowaniem
+                    </a>
+                <form method="get" action="/search" style="float:right; margin:0px;">
+                    <input type="text" name="search" placeholder="Wpisz frazę do wyszukania..." style="margin:3px;" />
+                    <input type="text" name="price_from" placeholder="Od" class="span1" style="margin:3px;"/>
+                    <input type="text" name="price_to" placeholder="Do" class="span1" style="margin:3px;"  />
+                    <input type="submit" value="Szukaj" />
+                </form>
+            </div>
+          </div>
+        </div>
+        <div id="content" class="container" style="margin-top:40px;">
+            <div class="row">
+                <!--<div class="span2">
+                    <h5>Twój koszyk:</h5>
+                    ...jest pusty<br />
+
+                    <a href="/orders/">Pokaż szczegóły</a>
+                </div>-->
+            </div>
+        </div>
+    </body>
+</html>

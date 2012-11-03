@@ -1,0 +1,11 @@
+[<% @order.getOrderItems.each do |item| %>
+{
+    "name":"<%= item.product.name %>",
+    "price":<%= item.product.price / 100 %>,
+    "quantity":<%= item.quantity %>,
+    "price_q":<%= item.product.price * item.quantity / 100 %>,
+    "id": <%= item.id %>
+},
+<% end %>
+{}
+]

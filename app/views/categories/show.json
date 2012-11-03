@@ -1,0 +1,1 @@
+[<% @products.each do |product| %>{"name":"<%= product.name %>", "price":"<%= product.price / 100 %>", "id":<%= product.id %>}, <% end %>{}]
