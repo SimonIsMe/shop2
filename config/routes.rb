@@ -4,6 +4,7 @@ Shop::Application.routes.draw do
   root :to => "shop#index"
 
   match "/orders/accept" => "orders#accept"
+  match "/prompt" => "shop#prompt"
 
   resources :categories
   resources :products

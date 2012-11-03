@@ -7,4 +7,8 @@ class ShopController < ApplicationController
         chceckBuyerSession
     end
 
+    def prompt
+        render :layout => false
+    end
+
 end
