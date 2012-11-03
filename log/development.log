@@ -69090,3 +69090,19 @@ Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/jquery.js" for 127.0.0.1 at 2012-11-03 12:59:18 +0100
 Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/prompt" for 127.0.0.1 at 2012-11-03 13:01:45 +0100
+Processing by ShopController#prompt as HTML
+  Rendered shop/prompt.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js" for 127.0.0.1 at 2012-11-03 13:01:45 +0100
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/prompt" for 127.0.0.1 at 2012-11-03 13:04:45 +0100
+Processing by ShopController#prompt as HTML
+  Rendered shop/prompt.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
