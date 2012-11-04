@@ -2,10 +2,13 @@
     <head>
         <script type="text/javascript" src="/javascript/jquery.js"></script>
         <script type="text/javascript" src="/javascript/prompt.js"></script>
+        <script type="text/javascript" src="/javascript/hadlebars.js"></script>
     </head>
     <body id="body">
-        <div id="hello" style="display:none">
-            Witaj, <span id="firstname"></span>! Jak leci?
+        <script id="hello-tpl" type="text/x-handlebars-template">
+            Witaj, {{firstname}}! Jak leci?
+        </script>
+        <div id="hello">
         </div>
     </body>
 </html>

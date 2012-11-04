@@ -2,13 +2,17 @@
 (function() {
 
   $(function() {
-    var imie;
+    var html, imie, source, template;
     imie = '';
     while (imie === '') {
       imie = prompt('Jak masz na imię?');
     }
-    $('#firstname').text(imie);
-    return $('#hello').show();
+    source = $("#hello-tpl").html();
+    template = Handlebars.compile(source);
+    html = template({
+      firstname: imie
+    });
+    return $('#hello').html(html);
   });
 
 }).call(this);
