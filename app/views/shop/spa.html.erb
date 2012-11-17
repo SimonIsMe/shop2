@@ -18,7 +18,7 @@
                     </li>
                     {{#list categories}} {{id}} {{name}} {{/list}}
                 </ul>
-          </div>
+            </div>
         </script>
 
         <script id="products-table-tpl" type="text/x-handlebars-template">
@@ -72,6 +72,24 @@
             <div id="right" class="span2"></div>
         </script>
 
+        <script id="search-results-tpl" type="text/x-handlebars-template">
+            <div id="main">
+                <h1>Wyszukiwarka</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>Cena</th>
+                            <th>Zobacz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#products-list products}} {{id}} {{name}} {{price}} {{/products-list}}
+                    </tbody>
+                </table>
+            </div>
+        </script>
+
         <script id="orders-tpl" type="text/x-handlebars-template">
             <div id="main">
                 <h1>Lista rzeczy w Twoim koszyku:</h1>
@@ -113,7 +131,7 @@
                     <a href="#/" class="brand">
                         Sklep z oprogramowaniem
                     </a>
-                <form method="get" action="/search" style="float:right; margin:0px;">
+                <form id="search" method="get" action="#/search" style="float:right; margin:0px;">
                     <input type="text" name="search" placeholder="Wpisz frazę do wyszukania..." style="margin:3px;" />
                     <input type="text" name="price_from" placeholder="Od" class="span1" style="margin:3px;"/>
                     <input type="text" name="price_to" placeholder="Do" class="span1" style="margin:3px;"  />

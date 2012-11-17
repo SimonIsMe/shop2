@@ -1,5 +1,3 @@
-
-
 $ ->
     main = new Main
 
@@ -29,6 +27,21 @@ $ ->
 
               $.get '/products/' + this.params['id'] + '.json', callback
               main.createCart()
+          @get '#/search', ->
+
+              callback = (data) ->
+                  console.log(data);
+                  source   = $("#search-results-tpl").html();
+                  template = Handlebars.compile(source);
+                  html = template({ products: data});
+                  $('#content .row').html(html);
+
+                  $('form#search input[name="search"]').val('')
+                  $('form#search input[name="price_from"]').val('')
+                  $('form#search input[name="price_to"]').val('')
+
+              $.get '/search.json?' + $('form#search').serialize(), callback
+
           @post '#/orders/create', ->
               $.post('/orders/',
                   {
@@ -56,7 +69,9 @@ $ ->
     app.run '#/'
 
     $('form').submit ->
-      return false;
+        return false;
+
+    $('form#search').unbind("submit");
 
 
 class Main

@@ -45,6 +45,23 @@
         $.get('/products/' + this.params['id'] + '.json', callback);
         return main.createCart();
       });
+      this.get('#/search', function() {
+        var callback;
+        callback = function(data) {
+          var html, source, template;
+          console.log(data);
+          source = $("#search-results-tpl").html();
+          template = Handlebars.compile(source);
+          html = template({
+            products: data
+          });
+          $('#content .row').html(html);
+          $('form#search input[name="search"]').val('');
+          $('form#search input[name="price_from"]').val('');
+          return $('form#search input[name="price_to"]').val('');
+        };
+        return $.get('/search.json?' + $('form#search').serialize(), callback);
+      });
       this.post('#/orders/create', function() {
         $.post('/orders/', {
           buyer_id: this.params['buyer_id'],
@@ -74,9 +91,10 @@
       });
     });
     app.run('#/');
-    return $('form').submit(function() {
+    $('form').submit(function() {
       return false;
     });
+    return $('form#search').unbind("submit");
   });
 
   Main = (function() {
